@@ -1592,7 +1592,7 @@ def pilih_Tiger():
 	print '\033[1;94m✅Process Has Been Completed Press➡ Ctrl+Z.↩ Next Type (0 & Data Reset)↩\033[1;97m....'
 	print"\033[1;91mTotal OK/\x1b[1;94mCP \033[1;97m: \033[1;97m"+str(len(oks))+"\033[1;97m/\033[1;91m"+str(len(cekpoint))
 	print """
-             
+"""             
 ________________________________
 _________________$$$_$$$$$_$$___________
 _______________$$$$$$$$$_$$$$$$_________
