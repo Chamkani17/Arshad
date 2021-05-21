@@ -320,19 +320,9 @@ def menu():
 		keluar()
 				
 				
-			except requests.exceptions.ConnectionError:
-				print"\n\x1b[1;97mThere is no internet connection"
-				keluar()
-		if 'checkpoint' in url:
-			print("\n\x1b[1;97mYour Account is on Checkpoint")
-			os.system('rm -rf login.txt')
-			time.sleep(1)
-			keluar()
-		else:
-			print("\n\x1b[1;94mPassword/Email is wrong")
-			os.system('rm -rf login.txt')
-			time.sleep(1)
-			login()
+			
+				 
+				
 
 
 def menu():
