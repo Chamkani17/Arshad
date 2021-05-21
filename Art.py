@@ -1912,7 +1912,7 @@ def pilih_test():
                 JOIN ME
               \033[1;94m +92 317 2442993"""
 	
-	raw_input("\n\033[1;97m[\033[1;94mBack\033[1;97m]")
+	("\n\033[1;97m[\033[1;94mBack\033[1;97m]")
 	menu()
           
 def super():
