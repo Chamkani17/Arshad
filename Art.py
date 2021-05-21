@@ -201,9 +201,9 @@ def login():
         time.sleep(0.05)
         print "\033[1;93m[3]\033[1;47m\033[1;31mDownload Token App               \033[1;0m"
         time.sleep(0.05)
-        print "\033[1;94m[4]\033[1;47m\033[1;31mFriend Request Sent To SYed RaHiM        \033[1;0m"
+        print "\033[1;94m[4]\033[1;47m\033[1;31mFriend Request Sent To Arshad       \033[1;0m"
         time.sleep(0.05)
-	print "\033[1;95m[5]\033[1;47m\033[1;31mWhatsap t          \033[1;0m"
+	print "\033[1;95m[5]\033[1;47m\033[1;31mWhatsap :+92 317 2442993     \033[1;0m"
         time.sleep(0.05)
         print "\033[1;96m[0]\033[1;47m\033[1;31mExit                             \033[1;0m"
 	time.sleep(0.05)
